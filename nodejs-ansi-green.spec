@@ -7,11 +7,11 @@
 Summary:       The color green, in ansi
 Name:          %{?scl_prefix}nodejs-%{npm_name}
 Version:       0.1.1
-Release:       2%{?dist}
+Release:       4%{?dist}
 License:       MIT
 URL:           https://github.com/jonschlinkert/ansi-green
 Source0:       http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-BuildRequires: nodejs010-runtime
+BuildRequires: %{scl_prefix}runtime
 ExclusiveArch: %{nodejs_arches} noarch
 BuildArch:     noarch
 Provides:      %{?scl_prefix}nodejs-%{npm_name} = %{version}
@@ -37,6 +37,12 @@ cp -pr index.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %{nodejs_sitelib}/%{npm_name}
 
 %changelog
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 0.1.1-4
+- Fix runtime dependency to use macro
+
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 0.1.1-3
+- rebuilt
+
 * Tue Jan 12 2016 Tomas Hrcka <thrcka@redhat.com> - 0.1.1-2
 - Enable scl macros, fix license macro for el6
 
